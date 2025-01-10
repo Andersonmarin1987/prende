@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora del 0.07 % de Intereses Diarios</title>
+</head>
+<body>
+    <h1>Calculadora del 0.07 % de Intereses Diarios</h1>
+    <form id="interestForm">
+        <label for="principal">Valor Principal:</label>
+        <input type="number" id="principal" name="principal" required><br><br>
+        <label for="days">Cantidad de Días:</label>
+        <input type="number" id="days" name="days" required><br><br>
+        <button type="button" onclick="calculateInterest()">Calcular Interés</button>
+    </form>
+    <h2>Resultado:</h2>
+    <p id="result"></p>
+
+    <script>
+        function calculateInterest() {
+            const principal = parseFloat(document.getElementById('principal').value);
+            const days = parseInt(document.getElementById('days').value);
+            const interestRate = 0.007; // Tasa del 0.07%
+
+            if (isNaN(principal) || isNaN(days)) {
+                alert('Por favor, ingrese valores válidos.');
+                return;
+            }
+
+            const interest = principal * interestRate * days;
+            document.getElementById('result').innerText = `El interés a pagar es: $${interest.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
